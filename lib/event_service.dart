@@ -93,6 +93,10 @@ class EventService {
         if (addressText.isEmpty) return;
         final title = node['name'] as String;
         final rawEnd = DateTime.tryParse('${node['endDate']}');
+        final category = categorize('$title ${node['description']}');
+        if (rawEnd != null &&
+            rawEnd.difference(start).inDays > (category == 'Arts' ? 180 : 14))
+          return;
         found.add(
           Hap(
             id: url,
@@ -101,7 +105,7 @@ class EventService {
                 ? '${loc['name'] ?? 'Event venue'}'
                 : 'Event venue',
             address: addressText,
-            category: categorize('$title ${node['description']}'),
+            category: category,
             description:
                 parse('${node['description'] ?? ''}').documentElement?.text ??
                 '',

@@ -240,7 +240,7 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
     final now = DateTime.now();
     final today = DateTime(now.year, now.month, now.day);
     final out = events.where((e) {
-      if (!e.recurring && date != 'Choose date' && !e.upcoming(today)) {
+      if (!e.recurring && date != 'Choose date' && !e.upcoming(now)) {
         return false;
       }
       if (tab == 1 && !saved.contains(e.id)) return false;
@@ -557,6 +557,19 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
     );
   }
 
+  String scheduleLabel(Hap e, DateTime when) {
+    if (e.recurring)
+      return 'Every ${DateFormat('EEEE').format(e.start)} · ${DateFormat('h:mm a').format(e.start)}';
+    final start = e.start.toLocal();
+    final end = e.end?.toLocal();
+    if (end != null &&
+        DateUtils.dateOnly(end).difference(DateUtils.dateOnly(start)).inDays >
+            1) {
+      return '${DateFormat('MMM d').format(start)} – ${DateFormat('MMM d').format(end)} • Check daily hours';
+    }
+    return '${DateFormat('EEE, MMM d').format(when.toLocal())} · ${DateFormat('h:mm a').format(when.toLocal())}';
+  }
+
   Widget card(Hap e) {
     final when = occurrence(e);
     final distance = lat == null ? null : e.milesFrom(lat!, lon!);
@@ -617,12 +630,7 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
                   ),
                 ),
                 const SizedBox(height: 10),
-                line(
-                  Icons.schedule,
-                  e.recurring
-                      ? 'Every ${DateFormat('EEEE').format(e.start)} · ${DateFormat('h:mm a').format(e.start)}'
-                      : '${DateFormat('EEE, MMM d').format(when.toLocal())} · ${DateFormat('h:mm a').format(when.toLocal())}',
-                ),
+                line(Icons.schedule, scheduleLabel(e, when)),
                 const SizedBox(height: 6),
                 line(
                   Icons.place_outlined,
