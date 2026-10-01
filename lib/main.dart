@@ -97,6 +97,7 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
   @override
   void dispose() {
     refreshTimer?.cancel();
+    service.close();
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
@@ -154,7 +155,13 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
     setState(() => refreshing = true);
     try {
       final fresh = await service.live();
-      final all = {for (final e in fresh) e.id: e}.values.toList();
+      final all = {
+        for (final e in events.where(
+          (e) => service.failedSources.contains(e.source),
+        ))
+          e.id: e,
+        for (final e in fresh) e.id: e,
+      }.values.toList();
       final updated = DateFormat('MMM d, h:mm a').format(DateTime.now());
       await prefs?.setString(
         'events',
@@ -164,7 +171,9 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
       if (mounted) {
         setState(() {
           events = all;
-          status = 'Calendars refreshed • $updated';
+          status = service.failedSources.isEmpty
+              ? 'Calendars refreshed • $updated'
+              : 'Updated • $updated • Some sources unavailable; saved entries retained';
         });
       }
     } catch (_) {
@@ -319,6 +328,123 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
           ],
         ),
         actions: [
+          IconButton(
+            tooltip: 'Event sources and neighborhood bars',
+            icon: const Icon(Icons.storefront_outlined),
+            onPressed: () => showModalBottomSheet<void>(
+              context: context,
+              isScrollControlled: true,
+              builder: (context) => SafeArea(
+                child: FractionallySizedBox(
+                  heightFactor: .8,
+                  child: ListView(
+                    padding: const EdgeInsets.all(20),
+                    children: [
+                      const Text(
+                        'Neighborhood bars & sources',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      const Text(
+                        'Schedules are checked online when events refresh. Some bars post only on social media; a connected website does not guarantee a complete calendar.',
+                      ),
+                      const SizedBox(height: 12),
+                      ListTile(
+                        title: const Text('Team Trivia'),
+                        subtitle: Text(
+                          service.sourceStatus['Team Trivia'] ??
+                              'Checking live metro Atlanta schedules…',
+                        ),
+                        onTap: () => open(
+                          Uri.parse(
+                            'https://www.teamtrivia.com/trivia-in-atlanta/',
+                          ),
+                        ),
+                      ),
+                      ListTile(
+                        title: const Text('Creative Loafing'),
+                        subtitle: Text(
+                          service.sourceStatus['Creative Loafing'] ??
+                              'Checking music, arts and festivals…',
+                        ),
+                        onTap: () => open(
+                          Uri.parse(
+                            'https://creativeloafing.com/atlanta-events',
+                          ),
+                        ),
+                      ),
+                      ListTile(
+                        title: const Text('Discover Atlanta festivals'),
+                        subtitle: const Text(
+                          'Open the live festival calendar • direct feed unavailable',
+                        ),
+                        trailing: const Icon(Icons.open_in_new),
+                        onTap: () => open(
+                          Uri.parse(
+                            'https://discoveratlanta.com/events/festivals/',
+                          ),
+                        ),
+                      ),
+                      ...EventService.venues.entries.map(
+                        (v) => ListTile(
+                          title: Text(v.key),
+                          isThreeLine: true,
+                          subtitle: Text(
+                            '${service.sourceStatus[v.key] ?? 'Waiting for refresh'}${v.key == 'Motorboat'
+                                ? '\nTuesday trivia reported by you; time unverified.'
+                                : v.key == 'Limerick Junction'
+                                ? '\nWednesday trivia reported by you; website currently advertises poker.'
+                                : ''}',
+                          ),
+                          trailing: const Icon(Icons.open_in_new),
+                          onTap: () => open(Uri.parse(v.value)),
+                        ),
+                      ),
+                      ListTile(
+                        title: const Text('Dad’s on Instagram'),
+                        subtitle: const Text('Official social updates'),
+                        trailing: const Icon(Icons.open_in_new),
+                        onTap: () => open(
+                          Uri.parse('https://www.instagram.com/dadsatl/'),
+                        ),
+                      ),
+                      ListTile(
+                        title: const Text('Virginia Highland District'),
+                        subtitle: Text(
+                          service.sourceStatus['Virginia Highland District'] ??
+                              'Checking public calendar feed…',
+                        ),
+                        onTap: () => open(
+                          Uri.parse(
+                            'https://www.virginiahighlanddistrict.com/events',
+                          ),
+                        ),
+                      ),
+                      ...[
+                        ('Dad’s', 33.7783, -84.3531),
+                        ('Atkins Park Tavern', 33.7766, -84.3526),
+                      ].map(
+                        (v) => ListTile(
+                          title: Text('Directions to ${v.$1}'),
+                          trailing: const Icon(Icons.directions),
+                          onTap: () => open(
+                            Uri.https('www.google.com', '/maps/dir/', {
+                              'api': '1',
+                              'destination': '${v.$2},${v.$3}',
+                              'travelmode': 'driving',
+                            }),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
           IconButton(
             onPressed: refreshing ? null : refresh,
             tooltip: 'Refresh events',
@@ -558,6 +684,9 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
   }
 
   String scheduleLabel(Hap e, DateTime when) {
+    if (e.allDay) {
+      return '${DateFormat('EEE, MMM d').format(when.toLocal())} • All-day listing; check hours';
+    }
     if (e.recurring) {
       return 'Every ${DateFormat('EEEE').format(e.start)} · ${DateFormat('h:mm a').format(e.start)}';
     }
@@ -723,7 +852,9 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
                   const SizedBox(height: 10),
                   line(
                     Icons.schedule,
-                    '${DateFormat('h:mm a').format(when.toLocal())}${e.end == null ? ' • End time not published' : ' – ${DateFormat('h:mm a').format(e.end!.toLocal())}${e.end!.toLocal().day != e.start.toLocal().day ? ' (next day)' : ''}'}',
+                    e.allDay
+                        ? 'All-day calendar listing • Check organizer for opening hours'
+                        : '${DateFormat('h:mm a').format(when.toLocal())}${e.end == null ? ' • End time not published' : ' – ${DateFormat('h:mm a').format(e.end!.toLocal())}${e.end!.toLocal().day != e.start.toLocal().day ? ' (next day)' : ''}'}',
                   ),
                   const SizedBox(height: 10),
                   line(Icons.place, '${e.venue}\n${e.address}'),

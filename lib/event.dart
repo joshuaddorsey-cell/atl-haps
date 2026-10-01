@@ -6,6 +6,7 @@ class Hap {
   final DateTime? end;
   final double? latitude, longitude;
   final bool recurring;
+  final bool allDay;
   const Hap({
     required this.id,
     required this.title,
@@ -20,6 +21,7 @@ class Hap {
     this.latitude,
     this.longitude,
     this.recurring = false,
+    this.allDay = false,
   });
   factory Hap.fromJson(Map<String, dynamic> j) => Hap(
     id: j['id'],
@@ -35,6 +37,7 @@ class Hap {
     latitude: (j['latitude'] as num?)?.toDouble(),
     longitude: (j['longitude'] as num?)?.toDouble(),
     recurring: j['recurring'] ?? false,
+    allDay: j['allDay'] ?? false,
   );
   Map<String, dynamic> toJson() => {
     'id': id,
@@ -50,6 +53,7 @@ class Hap {
     'latitude': latitude,
     'longitude': longitude,
     'recurring': recurring,
+    'allDay': allDay,
   };
   double? milesFrom(double lat, double lon) =>
       latitude == null || longitude == null
@@ -80,7 +84,15 @@ String categorize(String text) {
       s.contains('nightlife')) {
     return 'Nightlife';
   }
-  if (s.contains('festival') || s.contains('parade')) return 'Festivals';
+  if (s.contains('festival') ||
+      s.contains('parade') ||
+      s.contains('winterfest') ||
+      s.contains('porchfest') ||
+      s.contains('summerfest') ||
+      s.contains('oktoberfest') ||
+      RegExp(r'\bfest\b').hasMatch(s)) {
+    return 'Festivals';
+  }
   if (s.contains('sport') ||
       s.contains('braves') ||
       s.contains('hawks') ||
