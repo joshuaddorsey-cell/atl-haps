@@ -558,8 +558,9 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
   }
 
   String scheduleLabel(Hap e, DateTime when) {
-    if (e.recurring)
+    if (e.recurring) {
       return 'Every ${DateFormat('EEEE').format(e.start)} · ${DateFormat('h:mm a').format(e.start)}';
+    }
     final start = e.start.toLocal();
     final end = e.end?.toLocal();
     if (end != null &&

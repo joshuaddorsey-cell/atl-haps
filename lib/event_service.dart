@@ -95,8 +95,9 @@ class EventService {
         final rawEnd = DateTime.tryParse('${node['endDate']}');
         final category = categorize('$title ${node['description']}');
         if (rawEnd != null &&
-            rawEnd.difference(start).inDays > (category == 'Arts' ? 180 : 14))
+            rawEnd.difference(start).inDays > (category == 'Arts' ? 180 : 14)) {
           return;
+        }
         found.add(
           Hap(
             id: url,
