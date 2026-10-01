@@ -377,27 +377,39 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
                         ),
                       ),
                       ListTile(
-                        title: const Text('Discover Atlanta festivals'),
+                        title: const Text('Discover Atlanta'),
                         subtitle: const Text(
                           'Open the live festival calendar • direct feed unavailable',
                         ),
                         trailing: const Icon(Icons.open_in_new),
                         onTap: () => open(
-                          Uri.parse(
-                            'https://discoveratlanta.com/events/festivals/',
-                          ),
+                          Uri.parse('https://discoveratlanta.com/events/main/'),
                         ),
                       ),
+                      for (final source in {
+                        'Dirty South Trivia':
+                            'https://www.dirtysouthtrivia.com/',
+                        'Access Atlanta': 'https://events.accessatlanta.com/',
+                        'Eventbrite':
+                            'https://www.eventbrite.com/d/ga--atlanta/events/',
+                      }.entries)
+                        ListTile(
+                          title: Text(source.key),
+                          subtitle: Text(
+                            service.sourceStatus[source.key] ??
+                                (source.key == 'Eventbrite'
+                                    ? 'Open live calendar • direct import blocked'
+                                    : 'Waiting for refresh'),
+                          ),
+                          trailing: const Icon(Icons.open_in_new),
+                          onTap: () => open(Uri.parse(source.value)),
+                        ),
                       ...EventService.venues.entries.map(
                         (v) => ListTile(
                           title: Text(v.key),
                           isThreeLine: true,
                           subtitle: Text(
-                            '${service.sourceStatus[v.key] ?? 'Waiting for refresh'}${v.key == 'Motorboat'
-                                ? '\nTuesday trivia reported by you; time unverified.'
-                                : v.key == 'Limerick Junction'
-                                ? '\nWednesday trivia reported by you; website currently advertises poker.'
-                                : ''}',
+                            '${service.sourceStatus[v.key] ?? 'Waiting for refresh'}${v.key == 'Limerick Junction' ? '\nWednesday trivia reported by you; website currently advertises poker.' : ''}',
                           ),
                           trailing: const Icon(Icons.open_in_new),
                           onTap: () => open(Uri.parse(v.value)),
@@ -685,10 +697,10 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
 
   String scheduleLabel(Hap e, DateTime when) {
     if (e.allDay) {
-      return '${DateFormat('EEE, MMM d').format(when.toLocal())} • All-day listing; check hours';
+      return '${DateFormat('EEE, MMM d').format(when.toLocal())} • Check daily hours';
     }
     if (e.recurring) {
-      return 'Every ${DateFormat('EEEE').format(e.start)} · ${DateFormat('h:mm a').format(e.start)}';
+      return 'Every ${DateFormat('EEEE').format(e.start)} · ${DateFormat('h:mm a').format(e.start)}${e.end == null ? '' : ' – ${DateFormat('h:mm a').format(e.end!)}'}';
     }
     final start = e.start.toLocal();
     final end = e.end?.toLocal();
@@ -852,9 +864,9 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
                   const SizedBox(height: 10),
                   line(
                     Icons.schedule,
-                    e.allDay
-                        ? 'All-day calendar listing • Check organizer for opening hours'
-                        : '${DateFormat('h:mm a').format(when.toLocal())}${e.end == null ? ' • End time not published' : ' – ${DateFormat('h:mm a').format(e.end!.toLocal())}${e.end!.toLocal().day != e.start.toLocal().day ? ' (next day)' : ''}'}',
+                    (e.allDay
+                        ? 'Check organizer for daily opening hours'
+                        : '${DateFormat('h:mm a').format(when.toLocal())}${e.end == null ? ' • End time not published' : ' – ${DateFormat('h:mm a').format(e.end!.toLocal())}${e.end!.toLocal().day != e.start.toLocal().day ? ' (next day)' : ''}'}'),
                   ),
                   const SizedBox(height: 10),
                   line(Icons.place, '${e.venue}\n${e.address}'),

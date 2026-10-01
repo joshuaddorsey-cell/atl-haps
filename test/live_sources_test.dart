@@ -27,6 +27,22 @@ void main() {
       expect(counts['Team Trivia'], greaterThan(0));
       expect(counts['Creative Loafing'], greaterThan(0));
       expect(counts['Virginia Highland District'], greaterThan(0));
+      expect(counts['Dirty South Trivia'], greaterThan(20));
+      expect(counts['Access Atlanta'], greaterThan(0));
+      for (final e in events.where((e) => e.source == 'Dirty South Trivia')) {
+        expect(
+          e.address,
+          matches(RegExp(r'^\d')),
+          reason: '${e.venue}: ${e.address}',
+        );
+        expect(e.start.hour, greaterThanOrEqualTo(12));
+      }
+      final motorboat = events.singleWhere((e) => e.source == 'Motorboat');
+      expect(motorboat.start.weekday, DateTime.tuesday);
+      expect(
+        motorboat.end!.difference(motorboat.start),
+        const Duration(hours: 2),
+      );
     },
     skip: !const bool.fromEnvironment('LIVE_SOURCES'),
     timeout: const Timeout(Duration(minutes: 4)),
