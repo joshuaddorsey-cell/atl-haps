@@ -1,0 +1,11 @@
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: assets/branding/atl-haps-logo.png
+  adaptive_icon_background: '#FAF6EF'
+  adaptive_icon_foreground: assets/branding/atl-haps-logo.png
+  web:
+    generate: true
+    image_path: assets/branding/atl-haps-logo.png
+    background_color: '#FAF6EF'
+    theme_color: '#101D2F'
