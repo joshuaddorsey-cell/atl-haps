@@ -1,0 +1,233 @@
+{
+  "Grindhouse Killer Burgers|Decatur": {
+    "address": "433 North McDonough St, Decatur, GA 30030",
+    "matchedAddress": "433 N MCDONOUGH ST, DECATUR, GA, 30030",
+    "latitude": 33.77241612528,
+    "longitude": -84.296450262534,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=433+North+McDonough+St%2C+Decatur%2C+GA+30030&benchmark=Public_AR_Current&format=json"
+  },
+  "Grindhouse Killer Burgers|Piedmont Rd": {
+    "address": "1842 Piedmont Ave NE, Atlanta, GA 30324",
+    "matchedAddress": "1842 PIEDMONT AVE NE, ATLANTA, GA, 30324",
+    "latitude": 33.806241612443,
+    "longitude": -84.366994634268,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1842+Piedmont+Ave+NE%2C+Atlanta%2C+GA+30324&benchmark=Public_AR_Current&format=json"
+  },
+  "Grindhouse Killer Burgers|Brookhaven": {
+    "address": "2565 Apple Valley Road, Brookhaven, GA 30319",
+    "matchedAddress": "2565 APPLE VALLEY RD NE, BROOKHAVEN, GA, 30319",
+    "latitude": 33.861806986858,
+    "longitude": -84.336994053163,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=2565+Apple+Valley+Road%2C+Brookhaven%2C+GA+30319&benchmark=Public_AR_Current&format=json"
+  },
+  "Grindhouse Killer Burgers|Memorial Dr": {
+    "address": "701 Memorial Drive SE, Atlanta, GA 30316",
+    "matchedAddress": "701 MEMORIAL DR SE, ATLANTA, GA, 30316",
+    "latitude": 33.746621833111,
+    "longitude": -84.365152193554,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=701+Memorial+Drive+SE%2C+Atlanta%2C+GA+30316&benchmark=Public_AR_Current&format=json"
+  },
+  "Grindhouse Killer Burgers|West Midtown": {
+    "address": "1221 Chattahoochee Ave NW, Atlanta, GA 30318",
+    "matchedAddress": "1221 OLD CHATTAHOOCHEE AVE NW, ATLANTA, GA, 30318",
+    "latitude": 33.800471444348,
+    "longitude": -84.425909119248,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1221+Chattahoochee+Ave+NW%2C+Atlanta%2C+GA+30318&benchmark=Public_AR_Current&format=json"
+  },
+  "Hotel Clermont|Poncey-Highland": {
+    "address": "789 Ponce De Leon Ave NE, Atlanta, GA 30306",
+    "matchedAddress": "789 PONCE DE LEON AVE NE, ATLANTA, GA, 30306",
+    "latitude": 33.77374912098,
+    "longitude": -84.361180220742,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=789+Ponce+De+Leon+Ave+NE%2C+Atlanta%2C+GA+30306&benchmark=Public_AR_Current&format=json"
+  },
+  "Amasa|Alpharetta": {
+    "address": "15 Academy Street, Space 1E, Alpharetta, GA 30009",
+    "matchedAddress": "15 ACADEMY ST, ALPHARETTA, GA, 30009",
+    "latitude": 34.075500862183,
+    "longitude": -84.293260723218,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=15+Academy+Street%2C+Alpharetta%2C+GA+30009&benchmark=Public_AR_Current&format=json"
+  },
+  "Chicheria|The Works": {
+    "address": "202 Chattahoochee Row NW, Suite C, Atlanta, GA 30318",
+    "matchedAddress": "202 CHATTAHOOCHEE AVE NW, ATLANTA, GA, 30318",
+    "latitude": 33.801152489688,
+    "longitude": -84.424150161272,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=202+Chattahoochee+Row+NW%2C+Atlanta%2C+GA+30318&benchmark=Public_AR_Current&format=json"
+  },
+  "Ormsby's|West Midtown": {
+    "address": "1170 Howell Mill Rd, Suite P20, Atlanta, GA 30318",
+    "matchedAddress": "1170 HOWELL MILL RD, ATLANTA, GA, 30318",
+    "latitude": 33.786533079003,
+    "longitude": -84.411754587853,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1170+Howell+Mill+Rd%2C+Atlanta%2C+GA+30318&benchmark=Public_AR_Current&format=json"
+  },
+  "Parkgrounds|Reynoldstown": {
+    "address": "142 Flat Shoals Ave SE, Atlanta, GA 30316",
+    "matchedAddress": "142 FLAT SHOALS AVE SE, ATLANTA, GA, 30316",
+    "latitude": 33.750113974358,
+    "longitude": -84.3547910425,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=142+Flat+Shoals+Ave+SE%2C+Atlanta%2C+GA+30316&benchmark=Public_AR_Current&format=json"
+  },
+  "Punch Bowl Social|The Battery": {
+    "address": "875 Battery Ave SE, Suite 720, Atlanta, GA 30339",
+    "matchedAddress": "875 BATTERY AVE SE, ATLANTA, GA, 30339",
+    "latitude": 33.889129992699,
+    "longitude": -84.469829792442,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=875+Battery+Ave+SE%2C+Atlanta%2C+GA+30339&benchmark=Public_AR_Current&format=json"
+  },
+  "Sceptre Brewing Arts|Decatur": {
+    "address": "630 East Lake Dr, Suite E, Decatur, GA 30030",
+    "matchedAddress": "630 E LAKE DR, DECATUR, GA, 30030",
+    "latitude": 33.759752118554,
+    "longitude": -84.304992454812,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=630+East+Lake+Dr%2C+Decatur%2C+GA+30030&benchmark=Public_AR_Current&format=json"
+  },
+  "Wild Heaven|Avondale": {
+    "address": "135B Maple St, Decatur, GA 30030",
+    "matchedAddress": "135 MAPLE ST, DECATUR, GA, 30030",
+    "latitude": 33.776250405156,
+    "longitude": -84.276349888903,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=135+Maple+St%2C+Decatur%2C+GA+30030&benchmark=Public_AR_Current&format=json"
+  },
+  "Wild Heaven|Toco Hills": {
+    "address": "2935-B N Druid Hills Rd, Atlanta, GA 30329",
+    "matchedAddress": "2935 N DRUID HILLS RD NE, ATLANTA, GA, 30329",
+    "latitude": 33.815376988654,
+    "longitude": -84.310179556379,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=2935+N+Druid+Hills+Rd%2C+Atlanta%2C+GA+30329&benchmark=Public_AR_Current&format=json"
+  },
+  "Wild Heaven|West End": {
+    "address": "1010 White St SW, Atlanta, GA 30310",
+    "matchedAddress": "1010 WHITE ST SW, ATLANTA, GA, 30310",
+    "latitude": 33.732158997398,
+    "longitude": -84.420569628018,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1010+White+St+SW%2C+Atlanta%2C+GA+30310&benchmark=Public_AR_Current&format=json"
+  },
+  "Breaker Breaker|Reynoldstown": {
+    "address": "921 Wylie St SE, Atlanta, GA 30316",
+    "matchedAddress": "921 WYLIE ST SE, ATLANTA, GA, 30316",
+    "latitude": 33.752443534589,
+    "longitude": -84.356122523801,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=921+Wylie+St+SE%2C+Atlanta%2C+GA+30316&benchmark=Public_AR_Current&format=json"
+  },
+  "Close Company|Old Fourth Ward": {
+    "address": "505 North Angier Avenue, Suite 320, Atlanta, GA 30308",
+    "matchedAddress": "505 N ANGIER AVE NE, ATLANTA, GA, 30308",
+    "latitude": 33.769050127239,
+    "longitude": -84.363543406527,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=505+North+Angier+Avenue%2C+Atlanta%2C+GA+30308&benchmark=Public_AR_Current&format=json"
+  },
+  "Fado Buckhead|Buckhead": {
+    "address": "273 Buckhead Ave NE, Atlanta, GA 30305",
+    "matchedAddress": "273 BUCKHEAD AVE NE, ATLANTA, GA, 30305",
+    "latitude": 33.838148801909,
+    "longitude": -84.378659327751,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=273+Buckhead+Ave+NE%2C+Atlanta%2C+GA+30305&benchmark=Public_AR_Current&format=json"
+  },
+  "Fado Midtown|Midtown": {
+    "address": "933 Peachtree St NE, Atlanta, GA 30309",
+    "matchedAddress": "933 PEACHTREE ST, ATLANTA, GA, 30309",
+    "latitude": 33.780311554078,
+    "longitude": -84.384068365193,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=933+Peachtree+St+NE%2C+Atlanta%2C+GA+30309&benchmark=Public_AR_Current&format=json"
+  },
+  "Industry Tavern|Buckhead": {
+    "address": "3280 Peachtree Road NE, Suite 187, Atlanta, GA 30305",
+    "matchedAddress": "3280 PEACHTREE DR NE, ATLANTA, GA, 30305",
+    "latitude": 33.842511308165,
+    "longitude": -84.363006916448,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=3280+Peachtree+Road+NE%2C+Atlanta%2C+GA+30305&benchmark=Public_AR_Current&format=json"
+  },
+  "McCray's Tavern|Beltline": {
+    "address": "670 DeKalb Ave NE, Suite 101, Atlanta, GA 30307",
+    "matchedAddress": "670 DEKALB AVE, ATLANTA, GA, 30307",
+    "latitude": 33.753431184633,
+    "longitude": -84.364385930491,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=670+DeKalb+Ave+NE%2C+Atlanta%2C+GA+30307&benchmark=Public_AR_Current&format=json"
+  },
+  "McCray's Tavern|Midtown": {
+    "address": "1163 W Peachtree Street NE, Atlanta, GA 30309",
+    "matchedAddress": "1163 W PEACHTREE ST NW, ATLANTA, GA, 30309",
+    "latitude": 33.786611356224,
+    "longitude": -84.387739488193,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1163+W+Peachtree+Street+NE%2C+Atlanta%2C+GA+30309&benchmark=Public_AR_Current&format=json"
+  },
+  "McCray's Tavern|Smyrna": {
+    "address": "4500 West Village Pl SE, Smyrna, GA 30080",
+    "matchedAddress": "4500 W VILLAGE PL SE, SMYRNA, GA, 30080",
+    "latitude": 33.844036551575,
+    "longitude": -84.490388256212,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=4500+West+Village+Pl+SE%2C+Smyrna%2C+GA+30080&benchmark=Public_AR_Current&format=json"
+  },
+  "Monday Night Garage|West End": {
+    "address": "933 Lee St SW, Atlanta, GA 30310",
+    "matchedAddress": "933 LEE ST SW, ATLANTA, GA, 30310",
+    "latitude": 33.729160486407,
+    "longitude": -84.416064958168,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=933+Lee+St+SW%2C+Atlanta%2C+GA+30310&benchmark=Public_AR_Current&format=json"
+  },
+  "Monday Night Brewing|West Midtown": {
+    "address": "670 Trabert Ave NW, Atlanta, GA 30318",
+    "matchedAddress": "670 TRABERT AVE NW, ATLANTA, GA, 30318",
+    "latitude": 33.794752975789,
+    "longitude": -84.412872932931,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=670+Trabert+Ave+NW%2C+Atlanta%2C+GA+30318&benchmark=Public_AR_Current&format=json"
+  },
+  "Round Trip Brewing|Underwood Hills": {
+    "address": "1279 Seaboard Industrial Blvd NW, Atlanta, GA 30318",
+    "matchedAddress": "1279 SEABOARD INDUSTRIAL BLVD NW, ATLANTA, GA, 30318",
+    "latitude": 33.808636411202,
+    "longitude": -84.431197250648,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1279+Seaboard+Industrial+Blvd+NW%2C+Atlanta%2C+GA+30318&benchmark=Public_AR_Current&format=json"
+  },
+  "Round Trip Brewing|East Cobb": {
+    "address": "4475 Roswell Rd, Suite 1600, Marietta, GA 30062",
+    "matchedAddress": "4475 ROSWELL RD, MARIETTA, GA, 30062",
+    "latitude": 33.986386418578,
+    "longitude": -84.421915371385,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=4475+Roswell+Rd%2C+Marietta%2C+GA+30062&benchmark=Public_AR_Current&format=json"
+  },
+  "Savage Pizza|Norcross": {
+    "address": "7 Jones Street NW, Norcross, GA 30071",
+    "matchedAddress": "7 JONES ST NW, NORCROSS, GA, 30071",
+    "latitude": 33.942574234943,
+    "longitude": -84.213193731758,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=7+Jones+Street+NW%2C+Norcross%2C+GA+30071&benchmark=Public_AR_Current&format=json"
+  },
+  "The Family Dog|The Highlands": {
+    "address": "1402 North Highland Avenue NE, Atlanta, GA 30306",
+    "matchedAddress": "1402 N HIGHLAND AVE NE, ATLANTA, GA, 30306",
+    "latitude": 33.793119550955,
+    "longitude": -84.351675393775,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1402+North+Highland+Avenue+NE%2C+Atlanta%2C+GA+30306&benchmark=Public_AR_Current&format=json"
+  },
+  "Blue Moon Brewery|The Battery": {
+    "address": "755 Battery Ave SE, Atlanta, GA 30339",
+    "matchedAddress": "755 BATTERY AVE SE, ATLANTA, GA, 30339",
+    "latitude": 33.890928428375,
+    "longitude": -84.468992039329,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=755+Battery+Ave+SE%2C+Atlanta%2C+GA+30339&benchmark=Public_AR_Current&format=json"
+  },
+  "Bone Garden Cantina|West Midtown": {
+    "address": "1425 Ellsworth Industrial Blvd NW, Suite 6, Atlanta, GA 30318",
+    "matchedAddress": "1425 ELLSWORTH INDUSTRIAL DR NW, ATLANTA, GA, 30318",
+    "latitude": 33.794503217237,
+    "longitude": -84.426969046196,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1425+Ellsworth+Industrial+Blvd+NW%2C+Atlanta%2C+GA+30318&benchmark=Public_AR_Current&format=json"
+  },
+  "Little 5 Pub|Little 5 Points": {
+    "address": "1174 Euclid Avenue NE, Atlanta, GA 30307",
+    "matchedAddress": "1174 EUCLID AVE NE, ATLANTA, GA, 30307",
+    "latitude": 33.765461478524,
+    "longitude": -84.34924946121,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1174+Euclid+Avenue+NE%2C+Atlanta%2C+GA+30307&benchmark=Public_AR_Current&format=json"
+  },
+  "Monks Meadery|The Highlands": {
+    "address": "579 North Highland Avenue NE, Atlanta, GA 30307",
+    "matchedAddress": "579 N HIGHLAND AVE NE, ATLANTA, GA, 30307",
+    "latitude": 33.769513669022,
+    "longitude": -84.352452353228,
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=579+North+Highland+Avenue+NE%2C+Atlanta%2C+GA+30307&benchmark=Public_AR_Current&format=json"
+  }
+}

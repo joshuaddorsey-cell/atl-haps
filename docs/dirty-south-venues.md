@@ -1,6 +1,6 @@
 # Dirty South venue reference provenance
 
-Verified October 1, 2026. The live organizer homepage supplies weekday, venue, neighborhood, clock time and show type. The user confirmed all listed clock times are PM. No event schedule is bundled: removing a show from the homepage removes it on the next successful refresh. Reference addresses in `lib/dirty_venues.dart` are matched by venue AND neighborhood, so multi-location businesses stay separate. Coordinates are not guessed; these listings appear in Atlanta mode, while Near me requires published coordinates.
+Verified October 1, 2026. The live organizer homepage supplies weekday, venue, neighborhood, clock time and show type. The user confirmed all listed clock times are PM. No event schedule is bundled: removing a show from the homepage removes it on the next successful refresh. Reference addresses in `lib/dirty_venues.dart` are matched by venue AND neighborhood, so multi-location businesses stay separate. All 33 addresses were matched by the US Census Public_AR_Current geocoder to the same postal codes. The returned address-range coordinates are approximate and now support Near me. Raw matches and request URLs are in `dirty-south-geocoding.json`. Schedules still refresh live. Bona Fide (1454 La France St NE) and Limerick Junction (822 N Highland Ave NE) were also matched to their respective Atlanta addresses.
 
 Official address sources:
 

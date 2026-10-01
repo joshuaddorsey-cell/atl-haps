@@ -20,7 +20,7 @@ void main() {
       expect(entries.first.address, contains('142 Flat Shoals'));
       expect(entries[1].address, contains('789 Ponce'));
       expect(entries.last.start.hour, 20);
-      expect(entries.first.milesFrom(33.7, -84.3), isNull);
+      expect(entries.first.milesFrom(33.750114, -84.354791), closeTo(0, .001));
       expect(
         service.parseDirtySouth(
           body

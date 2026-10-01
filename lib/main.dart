@@ -53,15 +53,17 @@ class AtlHaps extends StatelessWidget {
 }
 
 class Explore extends StatefulWidget {
-  const Explore({super.key});
+  const Explore({super.key, this.eventService});
+  final EventService? eventService;
   @override
   State<Explore> createState() => _ExploreState();
 }
 
 class _ExploreState extends State<Explore> with WidgetsBindingObserver {
   Timer? refreshTimer;
+  int locationRequest = 0;
   DateTime? selectedDay;
-  final service = EventService();
+  late final EventService service;
   List<Hap> events = [];
   Set<String> saved = {};
   String category = 'All',
@@ -86,6 +88,7 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
+    service = widget.eventService ?? EventService();
     WidgetsBinding.instance.addObserver(this);
     refreshTimer = Timer.periodic(
       const Duration(minutes: 15),
@@ -109,11 +112,16 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
 
   Future<void> changeDate(String value) async {
     if (value == 'Choose date') {
+      final today = DateUtils.dateOnly(DateTime.now());
+      final first = today.subtract(const Duration(days: 1));
+      final last = DateTime(today.year + 1, today.month, today.day);
+      var initial = selectedDay ?? today;
+      if (initial.isBefore(first) || initial.isAfter(last)) initial = today;
       final day = await showDatePicker(
         context: context,
-        initialDate: selectedDay ?? DateTime.now(),
-        firstDate: DateTime.now().subtract(const Duration(days: 1)),
-        lastDate: DateTime.now().add(const Duration(days: 365)),
+        initialDate: initial,
+        firstDate: first,
+        lastDate: last,
       );
       if (day == null || !mounted) return;
       setState(() {
@@ -190,6 +198,7 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
 
   Future<void> location() async {
     if (locating) return;
+    final request = ++locationRequest;
     setState(() => locating = true);
     try {
       if (!await Geolocator.isLocationServiceEnabled()) {
@@ -213,7 +222,7 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
           timeLimit: Duration(seconds: 20),
         ),
       );
-      if (mounted) {
+      if (mounted && request == locationRequest) {
         setState(() {
           lat = p.latitude;
           lon = p.longitude;
@@ -221,13 +230,15 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
         });
       }
     } catch (e) {
-      if (mounted) {
+      if (mounted && request == locationRequest) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(e.toString().replaceFirst('Exception: ', ''))),
         );
       }
     } finally {
-      if (mounted) setState(() => locating = false);
+      if (mounted && request == locationRequest) {
+        setState(() => locating = false);
+      }
     }
   }
 
@@ -540,7 +551,11 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
                               backgroundColor: nearby ? Colors.white : peach,
                               foregroundColor: ink,
                             ),
-                            onPressed: () => setState(() => nearby = false),
+                            onPressed: () => setState(() {
+                              locationRequest++;
+                              nearby = false;
+                              locating = false;
+                            }),
                             icon: const Icon(Icons.location_city, size: 18),
                             label: const Text('Atlanta'),
                           ),
@@ -599,6 +614,21 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
                     DropdownButton<String>(
                       value: date,
                       underline: const SizedBox(),
+                      selectedItemBuilder: (context) =>
+                          ['Today', 'Next 7 days', 'Any day', 'Choose date']
+                              .map(
+                                (s) => Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    s == 'Choose date' && selectedDay != null
+                                        ? DateFormat(
+                                            'EEE, MMM d',
+                                          ).format(selectedDay!)
+                                        : s,
+                                  ),
+                                ),
+                              )
+                              .toList(),
                       items: ['Today', 'Next 7 days', 'Any day', 'Choose date']
                           .map(
                             (s) => DropdownMenuItem(value: s, child: Text(s)),

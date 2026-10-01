@@ -36,6 +36,8 @@ void main() {
           reason: '${e.venue}: ${e.address}',
         );
         expect(e.start.hour, greaterThanOrEqualTo(12));
+        expect(e.latitude, isNotNull, reason: e.venue);
+        expect(e.longitude, isNotNull, reason: e.venue);
       }
       final motorboat = events.singleWhere((e) => e.source == 'Motorboat');
       expect(motorboat.start.weekday, DateTime.tuesday);

@@ -422,6 +422,8 @@ class EventService {
           source: 'Dirty South Trivia',
           start: DateTime(2026, 1, 5 + day - 1, parts[0] % 12 + 12, parts[1]),
           recurring: true,
+          latitude: dirtyCoordinates['$venue|$area']?.$1,
+          longitude: dirtyCoordinates['$venue|$area']?.$2,
         );
       }
     }
@@ -663,6 +665,16 @@ class EventService {
                 source: entry.key,
                 start: DateTime(2026, 1, 5 + day - 1, hour),
                 recurring: true,
+                latitude: entry.key == 'Bona Fide Deluxe'
+                    ? 33.760645
+                    : entry.key == 'Limerick Junction'
+                    ? 33.776996
+                    : null,
+                longitude: entry.key == 'Bona Fide Deluxe'
+                    ? -84.340752
+                    : entry.key == 'Limerick Junction'
+                    ? -84.352572
+                    : null,
               ),
             );
           }

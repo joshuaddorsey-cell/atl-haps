@@ -21,7 +21,7 @@ Near me currently filters known Atlanta venue coordinates. These coordinates are
 
 ## Development
 
-Dirty South Trivia's live weekday schedule adds pub quizzes, music trivia and music bingo. Bona Fide entries already covered by its direct venue feed are excluded from this import. The user confirmed its times are PM. All currently listed venue addresses were verified online and matched by venue and neighborhood; provenance is in `docs/dirty-south-venues.md`. New unrecognized venues show a street-address confirmation note. These entries appear in Atlanta mode; without coordinates they are excluded from Near me. Access Atlanta imports up to 100 unique event pages linked from its live homepage, with structured dates, addresses and coordinates where published. Midnight placeholder listings show a check-hours label. Eventbrite and Discover Atlanta are available as live browser links because direct requests are currently rejected. Coverage remains partial; no calendar snapshot is bundled.
+Dirty South Trivia's live weekday schedule adds pub quizzes, music trivia and music bingo. Bona Fide entries already covered by its direct venue feed are excluded from this import. The user confirmed its times are PM. All currently listed venue addresses were verified online and matched by venue and neighborhood; provenance is in `docs/dirty-south-venues.md`. New unrecognized venues show a street-address confirmation note. All 33 currently scheduled Dirty South venue addresses now have Census address-range coordinates, allowing their 35 shows to appear in Near me. Bona Fide and Limerick recurring events also have address-matched coordinates. Custom date selection displays the selected date and safely clamps old selections when reopening the picker. Switching to Atlanta cancels the effect of pending location requests. Access Atlanta imports up to 100 unique event pages linked from its live homepage, with structured dates, addresses and coordinates where published. Midnight placeholder listings show a check-hours label. Eventbrite and Discover Atlanta are available as live browser links because direct requests are currently rejected. Coverage remains partial; no calendar snapshot is bundled.
 
 ```sh
 flutter pub get
@@ -43,4 +43,4 @@ Original logo generated with the built-in image tool: bold interlocking ATL mono
 
 ## Release
 
-Version 1.1.1+3 is a device-test build signed with the development key. Google Play publication requires a separate release signing configuration, store materials, data safety review, and additional source coverage/permission review. No Google Play publication is performed in this task.
+Version 1.1.2+4 is a device-test build signed with the development key. Google Play publication requires a separate release signing configuration, store materials, data safety review, and additional source coverage/permission review. No Google Play publication is performed in this task.
