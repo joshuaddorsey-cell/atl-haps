@@ -43,4 +43,5 @@ Original logo generated with the built-in image tool: bold interlocking ATL mono
 
 ## Release
 
-Version 1.1.2+4 is a device-test build signed with the development key. Google Play publication requires a separate release signing configuration, store materials, data safety review, and additional source coverage/permission review. No Google Play publication is performed in this task.
+Version 1.1.3+5 is a device-test build signed with the development key. Google Play publication requires a separate release signing configuration, store materials, data safety review, and additional source coverage/permission review. No Google Play publication is performed in this task.
+

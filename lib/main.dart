@@ -794,10 +794,19 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
                   ],
                 ),
                 Text(
-                  e.title,
+                  e.venue,
                   style: const TextStyle(
                     fontSize: 21,
                     fontWeight: FontWeight.w800,
+                    color: ink,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  e.title,
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
                     color: ink,
                   ),
                 ),
@@ -806,7 +815,7 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
                 const SizedBox(height: 6),
                 line(
                   Icons.place_outlined,
-                  '${e.venue}${distance == null ? '' : ' • ${distance.toStringAsFixed(1)} mi'}',
+                  '${e.address}${distance == null ? '' : '\n${distance.toStringAsFixed(1)} miles away'}',
                 ),
                 const SizedBox(height: 12),
                 Row(
