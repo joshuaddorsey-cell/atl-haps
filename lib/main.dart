@@ -224,7 +224,7 @@ class _ExploreState extends State<Explore> with WidgetsBindingObserver {
 
   DateTime occurrence(Hap e) {
     if (!e.recurring) return e.start;
-    final now = DateTime.now();
+    final now = selectedDay ?? DateTime.now();
     var next = DateTime(
       now.year,
       now.month,

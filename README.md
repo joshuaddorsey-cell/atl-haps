@@ -25,7 +25,7 @@ flutter run
 flutter build apk --release
 ```
 
-Optional bundled catalog refresh: Python with lxml, `python tools/refresh_catalog.py`. Live parsing is in `lib/event_service.dart`; event fields and navigation in `lib/event.dart`; screens in `lib/main.dart`.
+Optional source audit: Python with lxml, `python tools/refresh_catalog.py`. This writes a developer audit file and is not used as the runtime feed. Live parsing is in `lib/event_service.dart`; event fields and navigation in `lib/event.dart`; screens in `lib/main.dart`.
 
 ## Privacy
 

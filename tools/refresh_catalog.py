@@ -1,4 +1,4 @@
-"""Refresh bundled listings from public calendars. Standard library + lxml.
+"""Audit live listings from public calendars. Standard library + lxml.
 No images downloaded, account tokens, or private APIs used.
 """
 from pathlib import Path
@@ -72,5 +72,5 @@ for weekday,hour,minute,title,cat in [(3,20,0,'Thursday trivia at Home Bar','Tri
         description='A recurring neighborhood bar event. Start time published by the venue; end time and admission are not published. Confirm this week with the venue.',
         url='https://www.homebaratl.com/',source='Home Bar',start=f'2026-10-{day:02}T{hour:02}:{minute:02}:00',end=None,
         latitude=33.7524,longitude=-84.3227,recurring=True))
-(ROOT/'assets/events.json').write_text(json.dumps(events,indent=2,ensure_ascii=False),encoding='utf-8')
+(ROOT/'tools/catalog-audit.json').write_text(json.dumps(events,indent=2,ensure_ascii=False),encoding='utf-8')
 print(f'Saved {len(events)} sourced listings')
